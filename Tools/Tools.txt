@@ -1,0 +1,75 @@
+The Structure of this folder is as follows
+
+MP4Box.exe
+x264.exe
+ffmpeg
+    README.txt   
+    bin
+        ffmpeg.exe
+        ffplay.exe
+        ffprobe.exe
+    doc
+        developer.html
+        faq.html
+        fate.html
+        ffmpeg-codecs.html
+        ffmpeg-filters.html
+        ffmpeg-resampler.html
+        ffmpeg.html
+        ffplay.html
+        ffprobe.html
+        general.html
+        git-howto.html
+        libavcodec.html
+        libavfilter.html
+        libavutil.html
+        libswresample.html
+        nut.html
+        platform.html
+        syntax.html
+    licenses
+        bzip2.txt
+        celt.txt
+        freetype.txt
+        frei0r.txt
+        gnutls.txt
+        lame.txt
+        libass.txt
+        libgsm.txt
+        libmodplug.txt
+        libtheora.txt
+        libvorbis.txt
+        libvpx.txt
+        nut.txt
+        opencore-amr.txt
+        openjpeg.txt
+        rtmpdump.txt
+        schroedinger.txt
+        speex.txt
+        utvideo.txt
+        vo-aacenc.txt
+        vo-amrwbenc.txt
+        x264.txt
+        xavs.txt
+        xvid.txt
+        zlib.txt
+    presets
+        ffprobe.xsd
+        libvpx-1080p.ffpreset
+        libvpx-1080p50_60.ffpreset
+        libvpx-360p.ffpreset
+        libvpx-720p.ffpreset
+        libvpx-720p50_60.ffpreset
+        libx264-ipod320.ffpreset
+        libx264-ipod640.ffpreset
+        examples
+                decoding_encoding.c
+                demuxing.c
+                filtering_audio.c
+                filtering_video.c
+                Makefile
+                metadata.c
+                muxing.c
+                README
+                scaling_video.c
+                
