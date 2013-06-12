@@ -1,13 +1,9 @@
-// #include <sys/types.h>
 #include <dirent.h>
 #include <errno.h>
 #include <vector>
 #include <string>
 #include <iostream>
 #include <fstream>
-// #include <unistd.h>
-// #include <sys/wait.h>
-// #include <sys/unistd.h>
 using namespace std;
 int getdir (string dir, vector<string> &files);
 void runCommand(string s);
@@ -24,17 +20,16 @@ int main(int argc, char *argv[])
     for (unsigned int i = 0; i < files.size();i++) {
         if(files[i][files[i].size()-1] == 'i' && files[i][files[i].size()-2] == 'v' && files[i][files[i].size()-3] == 'a') {
             string newName = "";
-			//string newName1 = "";
             for(unsigned int j = 0; j < files[i].size() - 3; j++) {
                 newName += files[i][j];
             }
             string commandVideo = Toolsloc + "x264.exe --bitrate 5000 --output " + VideoLoc +  newName + "mp4 " + files[i] + " 2>" + Logloc + files[i] +"_x264.log";;
-			string commandAudio = Toolsloc + "ffmpeg/bin/ffmpeg.exe -y -i " + files[i] + " -vn -ac 2 -ar 44100 -ab 320k -f mp3 " + AudioLoc + "outputAudio_" + newName + "mp3 2>" + Logloc + files[i] +"_ffmpeg.log";
-			string commandMux = Toolsloc + "mp4box.exe -fps 60 -add " + VideoLoc + newName + "mp4" + " -add " + AudioLoc + "outputAudio_" + newName + "mp3 " + Finalloc + newName + "mp4";                      
+	    string commandAudio = Toolsloc + "ffmpeg/bin/ffmpeg.exe -y -i " + files[i] + " -vn -ac 2 -ar 44100 -ab 320k -f mp3 " + AudioLoc + "outputAudio_" + newName + "mp3 2>" + Logloc + files[i] +"_ffmpeg.log";
+	    string commandMux = Toolsloc + "mp4box.exe -fps 60 -add " + VideoLoc + newName + "mp4" + " -add " + AudioLoc + "outputAudio_" + newName + "mp3 " + Finalloc + newName + "mp4";                      
             cout << "Running x264...." << endl;
-			runCommand(commandVideo);
+	    runCommand(commandVideo);
             cout << "x264 is done." << endl;               
-			cout << "Running FFMPEG...." << endl;
+	    cout << "Running FFMPEG...." << endl;
             runCommand(commandAudio);
             cout << "ffmpeg is done." << endl;
             cout << "Running mp4box...." << endl;
