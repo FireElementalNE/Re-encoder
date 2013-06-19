@@ -25,18 +25,13 @@ int main(int argc, char *argv[])
                 newName += files[i][j];
             }
             string commandVideo = Toolsloc + "x264.exe --bitrate 5000 --output " + VideoLoc +  newName + "mp4 " + files[i] + " 2>" + Logloc + files[i] +"_x264.log";;
-<<<<<<< HEAD
 			string commandAudio = Toolsloc + "ffmpeg/bin/ffmpeg.exe -y -i " + files[i] + " -vn -ac 2 -ar 44100 -ab 320k -f mp3 " + AudioLoc + "outputAudio_" + newName + "mp3 2>" + Logloc + files[i] +"_ffmpeg.log";
 			string commandMux = Toolsloc + "mp4box.exe -fps 60 -add " + VideoLoc + newName + "mp4" + " -add " + AudioLoc + "outputAudio_" + newName + "mp3 " + Finalloc + newName + "mp4";                      
-			cout << commandVideo << endl << commandAudio << endl << commandMux << endl;
-=======
-	    string commandAudio = Toolsloc + "ffmpeg/bin/ffmpeg.exe -y -i " + files[i] + " -vn -ac 2 -ar 44100 -ab 320k -f mp3 " + AudioLoc + "outputAudio_" + newName + "mp3 2>" + Logloc + files[i] +"_ffmpeg.log";
-	    string commandMux = Toolsloc + "mp4box.exe -fps 60 -add " + VideoLoc + newName + "mp4" + " -add " + AudioLoc + "outputAudio_" + newName + "mp3 " + Finalloc + newName + "mp4";                      
->>>>>>> cb3b5fe51bad890c3aa594bb18c39c0303e21cd5
+			//cout << commandVideo << endl << commandAudio << endl << commandMux << endl;
             cout << "Running x264...." << endl;
-	    runCommand(commandVideo);
+	        runCommand(commandVideo);
             cout << "x264 is done." << endl;               
-	    cout << "Running FFMPEG...." << endl;
+	        cout << "Running FFMPEG...." << endl;
             runCommand(commandAudio);
             cout << "ffmpeg is done." << endl;
             cout << "Running mp4box...." << endl;
