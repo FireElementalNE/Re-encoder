@@ -14,18 +14,25 @@ int main(int argc, char *argv[])
     string Finalloc = argv[3];
     string Logloc = argv[4];
     string Toolsloc = argv[5];
+    string container = argv[6];
     string dir = string(".");
     vector<string> files = vector<string>();
     getdir(dir,files);
     for (unsigned int i = 0; i < files.size();i++) {
-        if(files[i][files[i].size()-1] == 'i' && files[i][files[i].size()-2] == 'v' && files[i][files[i].size()-3] == 'a') {
+        if(files[i][files[i].size()-1] == container[2] && files[i][files[i].size()-2] == container[1] && files[i][files[i].size()-3] == container[0]) {
             string newName = "";
             for(unsigned int j = 0; j < files[i].size() - 3; j++) {
                 newName += files[i][j];
             }
             string commandVideo = Toolsloc + "x264.exe --bitrate 5000 --output " + VideoLoc +  newName + "mp4 " + files[i] + " 2>" + Logloc + files[i] +"_x264.log";;
+<<<<<<< HEAD
+			string commandAudio = Toolsloc + "ffmpeg/bin/ffmpeg.exe -y -i " + files[i] + " -vn -ac 2 -ar 44100 -ab 320k -f mp3 " + AudioLoc + "outputAudio_" + newName + "mp3 2>" + Logloc + files[i] +"_ffmpeg.log";
+			string commandMux = Toolsloc + "mp4box.exe -fps 60 -add " + VideoLoc + newName + "mp4" + " -add " + AudioLoc + "outputAudio_" + newName + "mp3 " + Finalloc + newName + "mp4";                      
+			cout << commandVideo << endl << commandAudio << endl << commandMux << endl;
+=======
 	    string commandAudio = Toolsloc + "ffmpeg/bin/ffmpeg.exe -y -i " + files[i] + " -vn -ac 2 -ar 44100 -ab 320k -f mp3 " + AudioLoc + "outputAudio_" + newName + "mp3 2>" + Logloc + files[i] +"_ffmpeg.log";
 	    string commandMux = Toolsloc + "mp4box.exe -fps 60 -add " + VideoLoc + newName + "mp4" + " -add " + AudioLoc + "outputAudio_" + newName + "mp3 " + Finalloc + newName + "mp4";                      
+>>>>>>> cb3b5fe51bad890c3aa594bb18c39c0303e21cd5
             cout << "Running x264...." << endl;
 	    runCommand(commandVideo);
             cout << "x264 is done." << endl;               
